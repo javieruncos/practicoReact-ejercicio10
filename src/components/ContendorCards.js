@@ -1,23 +1,22 @@
 import React from "react";
-import { Col, Container, Row,Card,Button } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
+import CardsP from "./CardsP";
 
-const ContendorCards = () => {
+const ContendorCards = ({arregloPelicula}) => {
   return (
     <Container className="mt-5">
       <Row>
-        <Col>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+      
+          {
+             
+             arregloPelicula.map((item,indice)=><CardsP nombre={item.nombre} key={indice} descripcion={item.descripcion} genero={item.select} />)
+
+
+
+          
+
+          }
+        
       </Row>
     </Container>
   );
