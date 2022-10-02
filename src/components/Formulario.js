@@ -28,6 +28,11 @@ const Formulario = () => {
     setSelect("")
   };
 
+  const borrarPelicula = (pelicula) =>{
+      let nuevoArregloPelicula = arregloPelicula.filter((item)=> item !== pelicula)
+      setArregloPelicula(nuevoArregloPelicula)
+  }
+
   return (
     <>
       <Container className="my-5">
@@ -57,9 +62,10 @@ const Formulario = () => {
                 onChange={(e) => setSelect(e.target.value)}
                 value={select}
               >
-                <option>Comedia</option>
-                <option>Accion</option>
-                <option>Drama</option>
+                <option disabled="">selecciona una opcion</option>
+                <option value="Comedia">Comedia</option>
+                <option selected value="Drama">Drama</option>
+                <option>Infantil</option>
               </select>
               <div className="d-flex justify-content-center my-5">
                 <Button type="submit">enviar</Button>
@@ -69,7 +75,7 @@ const Formulario = () => {
         </Row>
       </Container>
       <div>
-        <ContendorCards arregloPelicula={arregloPelicula} />
+        <ContendorCards arregloPelicula={arregloPelicula} borrarPelicula={borrarPelicula}/>
       </div>
     </>
   );

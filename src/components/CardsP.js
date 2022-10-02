@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card,Button,Col} from 'react-bootstrap';
 
-const CardsP = ({nombre,descripcion,genero}) => {
+const CardsP = ({nombre,descripcion,genero,borrarPelicula,item}) => {
     return (
         <Col md={4}>
        <Card>
@@ -11,7 +11,7 @@ const CardsP = ({nombre,descripcion,genero}) => {
               {descripcion}
               </Card.Text>
               <p><span>{genero}</span></p>
-              <Button variant="primary">Borrar</Button>
+              <Button variant="primary" onClick={()=>borrarPelicula(item)}>Borrar</Button>
             </Card.Body>
           </Card>
         </Col>
